@@ -1,0 +1,44 @@
+<h1> This is the current values of the product </h1>
+
+<div>
+<table>
+  <tr>
+    <th>Product ID Number</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Sale</th>
+  </tr>
+  <% @rs.each do |row| %>
+  <tr>
+    <td><%= row['id'] %></td>
+    <td><%= row['name'] %></label></td>
+    <td><%= row['price'] %></td>
+    <td><% if row['on_sale'] == 't' %>
+        On sale!
+      <% end %></td>
+  </tr>
+</table>
+</div>
+
+
+
+<h1>Update the details of the product</h1>
+
+<form action='/products/<%= row['id'] %>' method='post'>
+  <label for='updated_product_name'>Update Product Name</label>
+  <input type='text' name='updated_product_name'/>
+
+  <label for'updated_product_price'>Updated Product Price</label>
+  <input type='text' name='updated_product_price'/>
+
+  <label for='updated_product_sale_status'>On sale?</label>
+  <input type='radio' name='updated_product_sale_status' value='t'>Yes</input>
+  <input type='radio' name='updated_product_sale_status' value='f'>No</input>
+
+  <button>Save!</button>
+ </form>
+
+<% end %>
+<p><a href="/products"> Back to all products</a></p>
+
+

@@ -1,0 +1,35 @@
+<div>
+<table>
+  <tr>
+    <th>Product ID Number</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Sale</th>
+    <th>Search on Twitter</th>
+    <th>Search on Google</th>
+  </tr>
+  <% @rs.each do |row| %>
+  <tr>
+    <td><%= row['id'] %></td>
+    <td><a class="regular" href="/products/<%= row['id'] %>"><%= row['name'] %></label></a></td>
+    <td><%= row['price'] %></td>
+    <td><% if row['on_sale'] == 't' %>
+        On sale!
+      <% end %></td>
+
+    <td>
+      <a href="/products/search?q=<%= URI.escape(row['name']) %>">
+        Search on Twitter
+      </a>
+    </td>
+    <td>
+      <a href="/products/search_google?q=<%= URI.escape(row['name']) %>">
+        Search on Google Products
+      </a>
+    </td>
+  </tr>
+  <% end %>
+</table>
+</div>
+
+<a href='/'> Back </a>

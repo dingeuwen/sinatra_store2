@@ -1,0 +1,8 @@
+<h1>You searched for <%= @q %></h1>
+
+<% @results["results"].each do |result| %>
+  <div>
+    <img src="<%= result["profile_image_url"] %>">
+    <p><%= result["text"] %></p>
+  </div>
+<% end %>

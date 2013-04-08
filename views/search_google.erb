@@ -1,0 +1,16 @@
+
+<h1>You searched for <%= @q %></h1>
+
+<% @results["items"].each do |result| %>
+
+<div>
+  <img src=<%= result["product"]["images"][0]["link"] %>>
+  <p> <%= result["product"]["title"] %> </p>
+  <p> <%= result["product"]["description"] %> </p>
+  <p> <a href=<%= result["product"]["link"] %>>Search mode</a> </p>
+</div>
+
+<% end %>
+
+
+<!-- I want the title, description-->

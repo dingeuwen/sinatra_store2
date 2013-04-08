@@ -1,0 +1,27 @@
+<div>
+<table>
+  <tr>
+    <th>Product ID Number</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Sale</th>
+  </tr>
+  <% @rs.each do |row| %>
+  <tr>
+    <td><%= row['id'] %></td>
+    <td><%= row['name'] %></label></td>
+    <td><%= row['price'] %></td>
+    <td><% if row['on_sale'] == 't' %>
+        On sale!
+      <% end %></td>
+  </tr>
+  
+</table>
+</div>
+
+<p><a href="/products"> Back to all products</a></p>
+<p><a href="/products/<%= row['id'] %>/update">Update this products details</a></p>
+<p><form action="/products/<%= row['id'] %>/delete" method="post"><button>Delete this product</button></form></p>
+
+
+<% end %>
